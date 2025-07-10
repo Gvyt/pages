@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>403 Forbidden</title>
+<style>
+    html {
+        /* Define a base font size for rem units. This can be adjusted globally */
+        font-size: 16px; /* A common base, 1rem = 16px */
+    }
+
+    body {
+        /* Use Georgia as the primary font, with Times New Roman and serif as fallbacks */
+        font-family: Georgia, "Times New Roman", Times, serif;
+        background-color: #fff; /* White background */
+        color: #000; /* Black text */
+        text-align: center;
+        margin: 0; /* Remove all default body margins */
+        padding-top: 0; /* Remove any top padding to place content at the very top */
+        min-height: 100vh; /* Ensure body takes full viewport height for consistency */
+        box-sizing: border-box; /* Include padding in element's total width and height */
+    }
+
+    .container {
+        /* The container for the main content to control its overall width */
+        max-width: 500px; /* Maximum width for very large screens */
+        width: 90vw; /* Take 90% of the viewport width, scales down on small screens */
+        margin: 0 auto; /* Center the container horizontally */
+        padding: 0 1rem; /* Horizontal padding, scales with base font size */
+        padding-top: 2rem; /* Add some top padding to the container itself, if desired, to prevent content from touching the very, very top of the browser */
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: clamp(2em, 8vw, 3.5em); /* Responsive font size: min 2em, max 3.5em, scales with viewport width */
+        font-weight: bold; /* Make 403 Forbidden bold */
+        margin-bottom: 0.5em; /* Standard margin below h1, relative to h1's font size */
+        margin-top: 0; /* No top margin to push it down within its container */
+        word-wrap: break-word; /* Ensure text wraps on small screens */
+    }
+    hr {
+        width: 100vw; /* Make the line span 100% of the viewport width (edge-to-edge) */
+        margin-left: calc(50% - 50vw); /* Center the 100vw line */
+        margin-right: calc(50% - 50vw); /* Center the 100vw line */
+        border: 0;
+        border-top: 2px solid #000; /* Thin, light grey line */
+        margin-top: 1.5rem; /* Vertical margin, scales with base font size */
+        margin-bottom: 1.5rem; /* Vertical margin, scales with base font size */
+    }
+    p {
+        font-size: clamp(1em, 3.5vw, 1.2em); /* Responsive font size for paragraphs */
+        margin-top: 0.5em; /* Relative margin above paragraph */
+        margin-bottom: 0; /* Remove bottom margin to keep transparent text close */
+        word-wrap: break-word; /* Ensure text wraps on small screens */
+    }
+    .transparent-text {
+        color: rgba(0, 0, 0, 0); /* Fully transparent text */
+        font-size: 3em; /* Still needs to be tiny to be effectively invisible */
+        line-height: 1; /* Keep line height minimal */
+        display: block; /* Ensure it takes its own line */
+        margin-top: 0.5rem; /* Small relative margin to separate it from nginx */
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>403 Forbidden</h1>
+    <hr>
+    <p>nginx</p>
+    <p class="transparent-text">something new might be soon...</br>for now, im hosting here.</p>
+</div>
+</body>
+</html>
