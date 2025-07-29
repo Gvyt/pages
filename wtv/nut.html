@@ -4,10 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>nut</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
 
-<nut>?</nut>
+  <nut>nut</nut>
 
-  <script src="nut-button.js"></script> </body>
+  <script>
+    class NutButton extends HTMLElement {
+      constructor() {
+        super();
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+
+        shadowRoot.innerHTML = `
+          <style>
+            button {
+              padding: 10px 20px;
+              font-size: 16px;
+              cursor: pointer;
+              background-color: #4CAF50;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              display: inline-block;
+              margin: 5px;
+            }
+            button:hover {
+              background-color: #45a049;
+            }
+          </style>
+          <button id="button">
+            <slot></slot>
+          </button>
+          <audio id="nut" src="/wtv/nut.wav"></audio>
+        `;
+      }
+
+      connectedCallback() {
+        const button = this.shadowRoot.getElementById('button');
+        const audio = this.shadowRoot.getElementById('nut');
+
+        if (button) {
+          button.addEventListener('click', () => {
+            if (audio) {
+              audio.play()
+                .catch(error => {
+                  console.error('Error playing sound:', error);
+                });
+            } else {
+              console.warn('Audio element not found in Shadow DOM.');
+            }
+          });
+        } else {
+          console.warn('Button element not found in Shadow DOM.');
+        }
+      }
+    }
+
+    customElements.define('nut', NutButton);
+  </script>
+
+</body>
 </html>
