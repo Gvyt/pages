@@ -16,12 +16,7 @@
       background-color: #f0f0f0;
     }
   </style>
-</head>
-<body>
-
-  <nut>nut</nut>
-
-  <script>
+  <script defer>
     alert("oi dipshit its working");
 
     class NutButton extends HTMLElement {
@@ -60,10 +55,9 @@
         if (button) {
           button.addEventListener('click', () => {
             if (audio) {
-              audio.play()
-                .catch(error => {
-                  console.error('Error playing sound:', error);
-                });
+              audio.play().catch(error => {
+                console.error('Error playing sound:', error);
+              });
             } else {
               console.warn('Audio element not found in Shadow DOM.');
             }
@@ -76,6 +70,8 @@
 
     customElements.define('nut', NutButton);
   </script>
-
+</head>
+<body>
+  <nut>nut</nut>
 </body>
 </html>
