@@ -21,7 +21,7 @@ class NutButton extends HTMLElement {
       </style>
       <button id="myButton">
         <slot></slot> </button>
-      <audio id="nut" src="nut.wav"></audio> `;
+      <audio id="nut" src="/wtv/nut.wav"></audio> `;
   }
 
   connectedCallback() {
