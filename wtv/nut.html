@@ -22,10 +22,12 @@
   <nut>nut</nut>
 
   <script>
+    alert("oi dipshit its working");
+
     class NutButton extends HTMLElement {
       constructor() {
         super();
-        const shadowRoot = this.attachShadow({ mode: 'open' });
+        const shadowRoot = this.attachShadow({ mode: 'open' }); 
 
         shadowRoot.innerHTML = `
           <style>
