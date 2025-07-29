@@ -19,14 +19,14 @@ class NutButton extends HTMLElement {
           background-color: #45a049;
         }
       </style>
-      <button id="myButton">
+      <button id="butt">
         <slot></slot> </button>
       <audio id="nut" src="/wtv/nut.wav"></audio> `;
   }
 
   connectedCallback() {
-    const button = this.shadowRoot.getElementById('myButton');
-    const audio = this.shadowRoot.getElementById('myAudio');
+    const button = this.shadowRoot.getElementById('butt');
+    const audio = this.shadowRoot.getElementById('nut');
 
     button.addEventListener('click', () => {
       audio.play();
